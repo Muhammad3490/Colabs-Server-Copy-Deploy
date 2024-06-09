@@ -356,7 +356,7 @@ const getCollaborations = async (userId) => {
   try {
     const results = await CollabrationModel.find({
       $or: [{ SentBy: userId }, { SentTo: userId }]
-    });
+    }).sort({ SentAt: -1 });
     
     console.log("Collaborations found:", results);
 
