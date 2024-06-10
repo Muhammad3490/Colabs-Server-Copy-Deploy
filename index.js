@@ -237,7 +237,7 @@ app.get("/get/notes", async (req, res) => {
     let authorId=req.headers['x-user-id'];
     let user= await UserModal.findById(authorId);
     if(user){
-      let notes=await NoteModal.find({authorId}).sort({_id:-1});
+      let notes=await NoteModal.find({authorId});
       
       return res.json({status:"Sucess",message:"Notes found successfully",data:notes});
       
